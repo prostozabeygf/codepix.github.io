@@ -84,7 +84,7 @@ h3.io-panel_sub__title
 
 // compontents
 
-a.io-btn, input.io-btn
+a.io-btn, input.io-btn, #submit
 	border: none
 	display: inline-block
 	background-color: $blue
@@ -217,3 +217,53 @@ ul.io-social_list
 				outline: none
 		textarea.form_input
 			min-height: 150px
+
+/* COMMENTS FORM STYLES */
+#comments.comments-area
+
+#respond
+	max-width: 800px
+	padding: 50px 0 30px
+	margin: 0 auto
+#reply-title
+	margin-bottom: 10px
+	text-transform: uppercase
+	font-weight: 700
+#cancel-comment-reply-link
+#commentform
+.io-input_fields
+	display: flex
+	justify-content: space-between
+	p
+		width: 50%
+		margin-right: 15px
+		&:last-child
+			margin-right: 0
+#author, #email, #url
+	height: 42px
+	display: block
+	width: 100%
+	padding-left: 20px
+	border: 2px solid $silver
+	border-radius: 2px
+	+transition
+	&:focus
+		border: 2px solid $muted
+		outline: none
+#comment
+	border-radius: 2px
+	border: 2px solid $silver
+	width: 100%
+	max-width: 100%
+	min-width: 100%
+	padding: 15px 20px 0 
+	margin-bottom: 10px
+	+transition
+	&:focus
+		border: 2px solid $muted
+		outline: none
+#submit
+	margin-top: 25px
+	padding: 0.8em 2.3em
+.comment-notes
+	margin-bottom: 30px

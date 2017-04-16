@@ -729,7 +729,7 @@ h3.io-panel_sub__title {
   margin: 0;
   margin-bottom: 20px; }
 
-a.io-btn, input.io-btn {
+a.io-btn, input.io-btn, #submit {
   border: none;
   display: inline-block;
   background-color: #0074D9;
@@ -740,7 +740,7 @@ a.io-btn, input.io-btn {
   transition: all 0.15s ease-out 0s;
   text-align: center;
   text-transform: capitalize; }
-  a.io-btn:hover, input.io-btn:hover {
+  a.io-btn:hover, input.io-btn:hover, #submit:hover {
     background-color: #0066c0; }
 
 /* POST CATEGORIES */
@@ -869,6 +869,62 @@ ul.io-social_list {
 
 .io-contact_form .io-form__group textarea.form_input {
   min-height: 150px; }
+
+/* COMMENTS FORM STYLES */
+#respond {
+  max-width: 800px;
+  padding: 50px 0 30px;
+  margin: 0 auto; }
+
+#reply-title {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 700; }
+
+.io-input_fields {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .io-input_fields p {
+    width: 50%;
+    margin-right: 15px; }
+    .io-input_fields p:last-child {
+      margin-right: 0; }
+
+#author, #email, #url {
+  height: 42px;
+  display: block;
+  width: 100%;
+  padding-left: 20px;
+  border: 2px solid #dddddd;
+  border-radius: 2px;
+  transition: all 0.15s ease-out 0s; }
+  #author:focus, #email:focus, #url:focus {
+    border: 2px solid #aaaaaa;
+    outline: none; }
+
+#comment {
+  border-radius: 2px;
+  border: 2px solid #dddddd;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 15px 20px 0;
+  margin-bottom: 10px;
+  transition: all 0.15s ease-out 0s; }
+  #comment:focus {
+    border: 2px solid #aaaaaa;
+    outline: none; }
+
+#submit {
+  margin-top: 25px;
+  padding: 0.8em 2.3em; }
+
+.comment-notes {
+  margin-bottom: 30px; }
 
 /* MAIN HEADER STYLES */
 header.io-main_header {
