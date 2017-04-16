@@ -689,7 +689,7 @@ img {
 .space {
   height: 500px; }
 
-.box_shadow {
+.box_shadow, .comment-list li {
   box-shadow: 1px 0 5px 1px rgba(0, 0, 0, 0.15), 0 0 3px 1px rgba(0, 0, 0, 0.15); }
 
 .container-fluid {
@@ -874,7 +874,8 @@ ul.io-social_list {
 #respond {
   max-width: 800px;
   padding: 50px 0 30px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  border-bottom: 1px solid #dddddd; }
 
 #reply-title {
   margin-bottom: 10px;
@@ -898,7 +899,7 @@ ul.io-social_list {
   height: 42px;
   display: block;
   width: 100%;
-  padding-left: 20px;
+  padding-left: 15px;
   border: 2px solid #dddddd;
   border-radius: 2px;
   transition: all 0.15s ease-out 0s; }
@@ -925,6 +926,55 @@ ul.io-social_list {
 
 .comment-notes {
   margin-bottom: 30px; }
+
+/*Comment Output*/
+h2.comments-title {
+  max-width: 800px;
+  margin: 25px auto 35px;
+  font-size: 24px; }
+
+.comment-list .vcard img.photo {
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #FF851B; }
+
+.comment-list .comment-meta {
+  border-bottom: 1px solid #dddddd;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.comment-list .comment-metadata a {
+  color: #aaaaaa; }
+  .comment-list .comment-metadata a:hover {
+    color: #111111; }
+
+.comment-list {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.comment-list li {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 2px;
+  list-style-type: none; }
+
+.comment-list li p {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+  padding-bottom: 15px;
+  padding-top: 5px; }
 
 /* MAIN HEADER STYLES */
 header.io-main_header {
@@ -1211,7 +1261,7 @@ article#single.io-single_article .io-single_top {
     margin-bottom: 20px; }
 
 article#single.io-single_article .io-single__content {
-  padding: 40px 0;
+  padding: 40px 0 20px;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.62;

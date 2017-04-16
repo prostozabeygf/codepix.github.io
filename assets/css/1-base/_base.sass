@@ -36,7 +36,7 @@ img
 .space
 	height: 500px
 
-.box_shadow
+.box_shadow, .comment-list li
 	box-shadow: 1px 0 5px 1px rgba(0, 0, 0, 0.15), 0 0 3px 1px rgba(0, 0, 0, 0.15)
 
 // general styles
@@ -225,6 +225,7 @@ ul.io-social_list
 	max-width: 800px
 	padding: 50px 0 30px
 	margin: 0 auto
+	border-bottom: 1px solid $silver
 #reply-title
 	margin-bottom: 10px
 	text-transform: uppercase
@@ -243,7 +244,7 @@ ul.io-social_list
 	height: 42px
 	display: block
 	width: 100%
-	padding-left: 20px
+	padding-left: 15px
 	border: 2px solid $silver
 	border-radius: 2px
 	+transition
@@ -267,3 +268,82 @@ ul.io-social_list
 	padding: 0.8em 2.3em
 .comment-notes
 	margin-bottom: 30px
+
+
+/*Comment Output*/
+ 
+.commentlist .reply 
+.comment-list .reply a
+ 
+h2.comments-title
+	max-width: 800px
+	margin: 25px auto 35px
+	font-size: 24px
+.commentlist .alt 
+.commentlist .odd 
+.commentlist .even 
+.commentlist .thread-alt 
+.commentlist .thread-odd 
+.commentlist .thread-even 
+.commentlist li ul.children .alt 
+.commentlist li ul.children .odd 
+.commentlist li ul.children .even 
+
+.comment-list .vcard 
+.comment-list .vcard cite.fn 
+.comment-list .vcard span.says 
+.comment-list .vcard img.photo
+	border-radius: 50%
+	margin-right: 10px
+	box-shadow: 0 0 0 2px $white, 0 0 0 4px $accent 
+.comment-list .vcard img.avatar 
+.comment-list .vcard cite.fn a.url 
+
+.comment-list .comment-meta
+	border-bottom: 1px solid $silver
+	padding-bottom: 10px
+	margin-bottom: 15px
+	display: flex
+	justify-content: space-between
+	align-items: center
+.comment-list .comment-meta a 
+.comment-list .comment-metadata 
+.comment-list .comment-metadata a
+	color: $muted
+	&:hover
+		color: $black 
+ 
+.commentlist .parent 
+.commentlist .comment 
+.commentlist .children 
+.commentlist .pingback 
+.commentlist .bypostauthor 
+.commentlist .comment-author 
+.commentlist .comment-author-admin
+
+.comment-list
+	max-width: 800px
+	margin: 0 auto
+.comment-list li
+	display: block
+	width: 100%
+	background-color: $white
+	padding: 20px
+	border-radius: 2px
+	list-style-type: none
+
+.comment-list li p
+	font-family: 'Merriweather', serif
+	font-weight: 700
+	color: rgba(0,0,0,0.65)
+	padding-bottom: 15px
+	padding-top: 5px
+.comment-list li ul 
+.comment-list li ul.children li 
+.comment-list li ul.children li.alt 
+.comment-list li ul.children li.byuser 
+.comment-list li ul.children li.comment 
+.comment-list li ul.children li.bypostauthor 
+.comment-list li ul.children li.comment-author-admin 
+#cancel-comment-reply 
+#cancel-comment-reply a 
