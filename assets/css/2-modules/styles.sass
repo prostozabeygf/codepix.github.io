@@ -1,0 +1,443 @@
+/* MAIN HEADER STYLES */
+header.io-main_header
+ background-color: $white
+ height: 50px
+ line-height: 50px
+ position: fixed
+	top: 0
+	z-index: 100
+	left: 0
+	width: 100%
+ .io-sidebar_trigger, .io-prev_post
+ 	font-size: 17px
+ 	color: $black
+ 	i.fa
+			cursor: pointer
+	.io-main_logo
+		text-align: center
+		font:
+			family: 'Merriweather'
+			weight: 600
+			size: 16px
+		a
+			color: $black
+	.io-search_box, .io-next_post
+		font-size: 17px
+ 	color: $black
+ 	text-align: right
+ 	i.fa
+			cursor: pointer
+
+	.io-prev_post, .io-next_post
+		display: flex
+		align-items: center
+		cursor: pointer
+		&:hover
+			span
+				color: $black
+			i
+				background-color: $silver
+		span
+			+transition
+			font-size: 14px
+			font-weight: 600
+			margin: 0 10px
+			color: $muted
+		i
+			+transition
+			width: 30px
+			text-align: center
+			line-height: 30px
+			border-radius: 50%
+			height: 30px
+			background-color: lighten($silver, 10%)
+	.io-next_post
+		justify-content: flex-end
+
+/* OFF-SCREEN SIDEBAR STYLES */
+
+aside#off-sidebar.io-nav_sidebar
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	background-color: transparent
+	right: 0
+	z-index: 1050
+	opacity: 0
+ pointer-events: none
+	+transition(all 300ms ease-in-out)
+	.io-sidebar_content
+		background-color: $white
+		width: 250px
+		box-shadow: 3px 0 70px -30px rgba(0, 0, 0, 0.58), 5px 0 20px rgba(0, 0, 0, 0.2)
+		+transition(all 300ms ease-in-out)
+		transform: translateX(-220px)
+		height: 100%
+		position: absolute
+		left: -350px
+	.io-sidebar_trigger
+		text-align: right
+		color: $black
+		font-size: 18px
+		padding: 15px 30px 0 0
+		i
+			cursor: pointer
+
+html.nav_opened
+	body
+		overflow: hidden
+	aside#off-sidebar.io-nav_sidebar
+		background-color: rgba(0,0,0,0.7)
+		transform: translateX(0)
+		opacity: 1
+		pointer-events: auto
+		.io-sidebar_content
+	  transform: translate3d(350px, 0px, 0px)
+
+/* MAIN NAV STYLES */
+
+nav.io-main_nav
+	margin-top: 30px
+	ul.io-nav_list
+		li a
+			display: block
+			padding: 15px 0 15px 30px
+			margin-bottom: 10px
+			+transition
+			text-transform: uppercase
+			font:
+				size: 14px
+				weight: 700
+			color: lighten($black, 30%)
+			i.fa
+				margin-right: 15px
+				font-size: 18px
+				width: 25px
+				text-align: center
+				vertical-align: middle
+			&:hover
+				color: $black
+				background-color: #fafafa
+	.sub-menu
+		margin-left: 15px
+		display: none
+		list-style-type: none
+
+
+section#home.io-slider
+	background-color: $white
+	height: 450px
+	position: relative
+
+/* TOP ARTICLE STYLES */
+
+article.io-top_article
+	height: 100%
+	display: flex
+	flex-flow: column
+	justify-content: center
+	align-items: center
+	h2.io-top_article__title
+		max-width: 850px
+		text-align: center
+		margin-bottom: 15px
+		a 
+			color: $black
+	.io-top_article__date
+	 text-align: center
+		color: $muted
+		margin-bottom: 20px
+	.io-top_article__meta
+		color: $white
+		text-align: center
+		margin-top: 40px
+		span
+			padding: 6px 18px
+			border-right: 2px solid $muted
+			background-color: #dadada
+			&:last-child
+				border-right: none
+				border-radius: 0 3px 3px 0
+			&:first-child
+				border-radius: 3px 0 0 3px
+
+/* SECTION MAIN CONTENT STYLES */
+
+section#content.io-main_content
+	position: relative
+	z-index: 2
+	margin-top: -20px
+.io-articles_list
+	display: flex
+	flex-flow: wrap
+
+
+/* HOME PAGE ARTICLE STYLES */
+
+article.io-article
+	overflow: hidden
+	margin-bottom: 25px
+	border-radius: 3px
+	box-shadow: 0px 20px 110px -40px rgba(0, 0, 0, 0.78), 0px 7px 20px rgba(0, 0, 0, 0.3)
+	height: 320px
+	position: relative
+	width: 100%
+	display: flex
+	background:
+		size: cover
+		position: center center
+		repeat: no-repeat
+
+	.io-article_content
+		width: 70%
+		display: block
+		position: relative
+		&:hover .io-article_excerpt
+			color: $accent
+
+	.io-article_excerpt
+		background: linear-gradient(to left, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.62) 30%, rgba(0, 0, 0, 0.84) 100%)
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		width: 65%
+		+transition(all 300ms ease-in-out)
+		display: flex
+		align-items: center
+		text-align: left
+		text-transform: capitalize
+		line-height: 1.4
+		margin: 0
+		padding: 0 20px 0 30px
+		color: $white
+		font:
+			size: 21px
+			weight: 700
+
+	.io-article_thumb
+		width: 100%
+		height: 100%
+		background:
+			size: cover
+			position: center center
+			repeat: no-repeat
+
+article.io-article:nth-child(even)
+	.io-article_meta
+		order: 1
+	.io-article_content
+		order: 2
+	.io-article_excerpt
+		text-align: right
+		right: 0
+		left: auto
+		background: linear-gradient(to right, transparent 0%, transparent 0%, rgba(0, 0, 0, 0.62) 30%, rgba(0, 0, 0, 0.84) 100%)
+
+.io-load_more__wrapper
+	text-align: center
+	margin-top: 30px
+
+/* SINGLE ARTICLE STYLES */
+
+article#single.io-single_article
+	.io-single_top
+		height: 450px
+		display: flex
+		flex-flow: column
+		justify-content: center
+		align-items: center
+		h2.io-single_article__title
+			max-width: 850px
+			text-align: center
+			margin-bottom: 15px
+			color: $black
+		.io-single_article__date
+		 text-align: center
+			color: $muted
+			margin-bottom: 20px
+	.io-single__content
+		padding: 40px 0
+		background-color: $white
+		color: rgba(0, 0, 0, 0.8)
+		line-height: 1.62
+		font:
+			family: 'Merriweather', 'Times New Roman', serif
+			size: 18px
+	.io-single_thumbnail
+		height: 350px
+		margin: -90px -60px 50px
+		border-radius: 2px
+		box-shadow: 0px 15px 100px -35px rgba(0, 0, 0, 0.8), 0px 5px 20px rgba(0, 0, 0, 0.4)
+		background:
+			size: cover
+			position: center center
+			repeat: no-repeat
+
+/* FEATURED PROJECTS STYLES */
+
+section#featured_projects.io-featured_projects
+	background-color: #f7f7f7
+	margin-top: 90px
+	padding: 50px 0 80px
+	h2
+		font-size: 21px
+		text-align: center
+		font-weight: 400
+		margin-bottom: 35px
+	.container-fluid
+		max-width: 550px
+	.io-ft_project
+		text-align: center
+		display: block
+		&__thumb
+			background-color: $silver
+			height: 70px
+			margin: 0 auto
+			+transition
+			width: 70px
+			box-shadow: 0 2px 5px -1px transparent, 0 2px 5px 1px transparent
+		&__name
+			color: $muted
+			margin-top: 15px
+			text-transform: uppercase
+			font-size: 12px
+			+transition
+		&:hover .io-ft_project__name
+			color: $black
+		&:hover .io-ft_project__thumb
+			box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 2px 5px 1px rgba(0, 0, 0, 0.25)
+	hr
+  border-top: 1px solid $silver
+	p
+		text-align: center
+		color: darken($muted, 10%)
+		line-height: 27px
+		margin-top: 20px
+
+footer#footer.io-main_footer
+	padding: 80px 0 60px
+	color: $black
+	ul li
+		text-align: center
+		margin-bottom: 20px
+		padding-bottom: 10px
+		position: relative
+		list-style-type: none
+		font:
+			size: 18px
+		a
+			font-size: 16px
+			color: $muted
+			&:hover
+				color: $accent
+		&:last-child:after
+			display: none
+		&:after
+			content: ''
+			display: block
+			width: 20px
+			height: 1px
+			background-color: $muted
+			position: absolute
+			bottom: -6px
+			left: 50%
+			margin-left: -10px
+
+/* ABOUT PAGE STYLES */
+
+#content.io-main_about
+	padding-top: 40px
+
+.io-about_article
+	overflow: hidden
+	border-radius: 3px
+	box-shadow: 0px 20px 110px -40px rgba(0, 0, 0, 0.78), 0px 7px 20px rgba(0, 0, 0, 0.3)
+	position: relative
+	width: 100%
+	display: flex
+	background:
+		size: cover
+		position: center center
+		repeat: no-repeat
+
+	.io-about_article__content
+		width: 70%
+		position: relative
+		padding: 0 30px 40px
+		p
+			font-size: 16px
+			line-height: 1.6
+		.io-about_thumb
+			margin: 0 -30px
+			background:
+				size: cover
+				position: top left
+				repeat: no-repeat
+			height: 300px
+	.io-about_skills
+		background-color: #fafafa
+		width: 30%
+		padding: 40px 0
+		&__item
+			margin-bottom: 30px
+			&:last-child
+				margin-bottom: 0
+		.progress_circle
+			width: 100px
+			height: 100px
+			margin: 0 auto 10px
+			background-color: $blue
+			box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.68), 0px 5px 15px rgba(0, 0, 0, 0.6)
+			border-radius: 50%
+			color: $white
+			text-align: center
+			line-height: 100px
+			font-weight: 600
+			font-size: 18px
+			cursor: default
+		.progress_title
+			color: $black
+			font-weight: 700
+			text-transform: uppercase
+			text-align: center
+
+/* CONTACT PAGE STYLES */
+
+#content.io-main_contact
+	padding-top: 40px
+
+.io-contact_content
+	overflow: hidden
+	border-radius: 3px
+	box-shadow: 0px 20px 110px -40px rgba(0, 0, 0, 0.78), 0px 7px 20px rgba(0, 0, 0, 0.3)
+	position: relative
+	width: 100%
+	display: flex
+	align-items: center
+	background:
+		size: cover
+		position: center center
+		repeat: no-repeat
+
+	.io-contact_panel
+		width: 65%
+		position: relative
+		padding: 45px 30px 60px
+		height: 100%
+		background-color: #fafafa
+		h3
+			font-size: 24px
+			font-weight: 700
+			text-transform: uppercase
+			color: $muted
+			text-align: center
+			margin: 0 0 40px
+	.io-contact_meta
+		width: 35%
+		padding: 0 30px
+		p
+			font-weight: 600
+			max-width: 90%
+			margin-bottom: 30px

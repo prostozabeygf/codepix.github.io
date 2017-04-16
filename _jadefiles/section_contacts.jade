@@ -1,0 +1,29 @@
+#content.io-main_contact
+	.container-fluid
+		.row
+			.col-md-1
+				aside.io-social_aside
+					ul.io-social_list
+						li: a(href=""): i.fa.fa-instagram
+						li: a(href=""): i.fa.fa-twitter
+						li: a(href=""): i.fa.fa-soundcloud
+						li: a(href=""): i.fa.fa-github
+			.col-md-11
+				.io-contact_content
+					.io-contact_panel
+						h3 Contact Me
+						form.io-contact_form
+							.io-row
+								.col.col--1-of-2.io-form__group
+									input(type="text" placeholder="Name" name="name" id="first-name" class="form_input" required="required")
+								.col.col--1-of-2.io-form__group
+									input(type="text" placeholder="Email" name="email" id="email" class="form_input" required="required")
+								.col.col--12-of-12.io-form__group
+									textarea(rows="6" placeholder="Write your message" name="message" id="text_message" class="form_input" required="required")
+								.col.col--12-of-12.io-form__group
+									input(type="submit" value="Send Message" name="message" id="send_message" class="form_submit io-btn")
+					// about skills
+					.io-contact_meta
+						h2.io-panel_title Contacts
+						h3.io-panel_sub__title You can contact me
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum earum error enim molestiae, quam ullam magni libero, dignissimos eum corporis, modi atque.
