@@ -1,0 +1,17 @@
+#content.io-main_content
+	.container-fluid
+		.row
+			.col-md-1
+				aside.io-social_aside
+					ul.io-social_list
+						li: a(href=""): i.fa.fa-instagram
+						li: a(href=""): i.fa.fa-twitter
+						li: a(href=""): i.fa.fa-soundcloud
+						li: a(href=""): i.fa.fa-github
+			.col-md-11
+				.io-page_404__content
+					form.search-form(role="search" method="get" action="http://forbidden.project/")
+						label
+							span.screen-reader-text Найти:
+							input.search-field(type="search" placeholder="Поиск&hellip;" value="" name="s")
+						input.search-submit(type="submit" value="Поиск")
