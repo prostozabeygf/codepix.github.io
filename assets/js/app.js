@@ -37,7 +37,7 @@ function menuToggle(){
 
 function subMenuToggle(){
 
-  $('li.menu-item').on("click", function () {
+  $('li.menu-item-has-children').on("click", function () {
     $(this).children('.sub-menu').slideToggle(250);
   });
 
