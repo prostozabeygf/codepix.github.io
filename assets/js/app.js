@@ -21,6 +21,7 @@ $(document).ready(function(){
   
   menuToggle();
   subMenuToggle();
+  flexSlider();
   
 
 });
@@ -42,3 +43,13 @@ function subMenuToggle(){
   });
 
 }
+
+function flexSlider(){
+
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+
+}
+
+
