@@ -1,22 +1,4 @@
-
-
 #comments.comments-area
-	#respond.comment-respond
-		h3#reply-title.comment-reply-title Got Something To Say:
-			small: a(href="" style="display:none;")#cancel-comment-reply-link Отменить ответ
-		form#commentform.comment-form
-			p.comment-notes
-				span#email-notes Ваш e-mail не будет опубликован.
-				span#required Обязательные поля помечены
-			p
-				textarea#comment(placeholder="Your comment *"  name="comment" cols="45" rows="7" aria-required="true")
-			.io-input_fields
-				p.comment-form-autor
-					input#author(name="author" placeholder="Name *" type="text" value="" size="30")
-				p.comment-form-email
-					input#email(name="email" placeholder="Email *" type="text" value="" size="30")
-			p.form-submit
-				input#submit.submit(type="submit" value="Отправить комментарий")
 	h2.comments-title One Thought On “Навчально-Виховний Процес Призупинено До 19 Грудня”
 	ol.comment-list
 		li#comment-2.comment.even.thread-even.depth-1
@@ -33,3 +15,19 @@
 					p Just testing how comments work
 				.reply
 					a(hrel='nofollow' class='comment-reply-link' href='' aria-label='Комментарий к записи admin') Ответить
+	#respond.comment-respond
+		h3#reply-title.comment-reply-title Got Something To Say:
+			small: a(href="" style="display:none;")#cancel-comment-reply-link Отменить ответ
+		form#commentform.comment-form
+			p.comment-notes
+				span#email-notes Ваш e-mail не будет опубликован.
+				span#required Обязательные поля помечены
+			p
+				textarea#comment(placeholder="Your comment *"  name="comment" cols="45" rows="7" aria-required="true")
+			.io-input_fields
+				p.comment-form-autor
+					input#author(name="author" placeholder="Name *" type="text" value="" size="30")
+				p.comment-form-email
+					input#email(name="email" placeholder="Email *" type="text" value="" size="30")
+			p.form-submit
+				input#submit.submit(type="submit" value="Отправить комментарий")
