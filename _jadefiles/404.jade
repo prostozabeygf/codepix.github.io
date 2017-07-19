@@ -1,4 +1,4 @@
-#content.io-main_content
+#content.io-main_content.io-page_404
 	.container-fluid
 		.row
 			.col-md-1
@@ -10,8 +10,10 @@
 						li: a(href=""): i.fa.fa-github
 			.col-md-11
 				.io-page_404__content
-					form.search-form(role="search" method="get" action="http://forbidden.project/")
-						label
-							span.screen-reader-text Найти:
-							input.search-field(type="search" placeholder="Поиск&hellip;" value="" name="s")
-						input.search-submit(type="submit" value="Поиск")
+					.io-page_404__text
+						.number404 404
+						.pageNotFound page not found
+						.large404 Unfortunatelly, this page does not exist :(
+						.small404 Don't sweet it. Try looking on the 
+							a(href="index.html") home page
+					

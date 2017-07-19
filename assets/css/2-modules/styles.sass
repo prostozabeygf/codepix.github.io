@@ -1,6 +1,6 @@
 /* MAIN HEADER STYLES */
 header.io-main_header
- background-color: $white
+ background-color: $bg_color
  height: 50px
  line-height: 50px
  position: fixed
@@ -58,6 +58,21 @@ header.io-main_header
 	.io-next_post
 		justify-content: flex-end
 
+	.header_container
+		display: flex
+		padding: 0 30px
+		align-items: center
+		justify-content: space-between
+		.io-sidebar_trigger, .io-search_box, .io-prev_post, .io-next_post
+			width: 25%
+		.io-main_logo
+			width: 50%
+
+header.io-single_header .header_container
+	padding: 0 18px
+
+
+
 /* OFF-SCREEN SIDEBAR STYLES */
 
 aside#off-sidebar.io-nav_sidebar
@@ -69,10 +84,10 @@ aside#off-sidebar.io-nav_sidebar
 	right: 0
 	z-index: 1050
 	opacity: 0
- pointer-events: none
+	pointer-events: none
 	+transition(all 300ms ease-in-out)
 	.io-sidebar_content
-		background-color: $white
+		background-color: $bg_color
 		width: 250px
 		box-shadow: 3px 0 70px -30px rgba(0, 0, 0, 0.58), 5px 0 20px rgba(0, 0, 0, 0.2)
 		+transition(all 300ms ease-in-out)
@@ -97,7 +112,7 @@ html.nav_opened
 		opacity: 1
 		pointer-events: auto
 		.io-sidebar_content
-	  transform: translate3d(350px, 0px, 0px)
+			transform: translate3d(350px, 0px, 0px)
 
 /* MAIN NAV STYLES */
 
@@ -117,6 +132,7 @@ nav.io-main_nav
 			i.fa
 				margin-right: 15px
 				font-size: 18px
+				margin-bottom: 2px
 				width: 25px
 				text-align: center
 				vertical-align: middle
@@ -140,6 +156,7 @@ article.io-top_article
 	height: 100%
 	display: flex
 	flex-flow: column
+	background: $bg_color
 	justify-content: center
 	align-items: center
 	h2.io-top_article__title
@@ -149,7 +166,7 @@ article.io-top_article
 		a 
 			color: $black
 	.io-top_article__date
-	 text-align: center
+		text-align: center
 		color: $muted
 		margin-bottom: 20px
 	.io-top_article__meta
@@ -249,9 +266,9 @@ article.io-article:nth-child(even)
 
 article#single.io-single_article
 	.io-single_top
-		height: 450px
 		display: flex
 		flex-flow: column
+		padding-top: 30px
 		justify-content: center
 		align-items: center
 		h2.io-single_article__title
@@ -264,16 +281,17 @@ article#single.io-single_article
 			color: $muted
 			margin-bottom: 20px
 	.io-single__content
-		padding: 40px 0 20px
-		background-color: $white
+		padding: 30px 15px 0
+		background-color: $bg_color
 		color: rgba(0, 0, 0, 0.8)
 		line-height: 1.62
 		font:
 			family: 'Merriweather', 'Times New Roman', serif
 			size: 18px
 	.io-single_thumbnail
-		height: 350px
-		margin: -90px -60px 50px
+		height: 400px
+		width: 90%
+		margin-bottom: 40px
 		border-radius: 2px
 		box-shadow: 0px 15px 100px -35px rgba(0, 0, 0, 0.8), 0px 5px 20px rgba(0, 0, 0, 0.4)
 		background:
@@ -298,12 +316,16 @@ section#featured_projects.io-featured_projects
 		text-align: center
 		display: block
 		&__thumb
-			background-color: $silver
+			background:
+				color: $silver
+				size: contain
+				position: center center
+				repeat: no-repeat
 			height: 70px
 			margin: 0 auto
 			+transition
 			width: 70px
-			box-shadow: 0 2px 5px -1px transparent, 0 2px 5px 1px transparent
+			box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 2px 5px 1px rgba(0, 0, 0, 0.25)
 		&__name
 			color: $muted
 			margin-top: 15px
@@ -312,15 +334,76 @@ section#featured_projects.io-featured_projects
 			+transition
 		&:hover .io-ft_project__name
 			color: $black
+			font-weight: 600
 		&:hover .io-ft_project__thumb
-			box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.15), 0 2px 5px 1px rgba(0, 0, 0, 0.25)
+			box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.35), 0 2px 5px 1px rgba(0, 0, 0, 0.45)
 	hr
-  border-top: 1px solid $silver
+		border-top: 1px solid $silver
 	p
 		text-align: center
 		color: darken($muted, 10%)
 		line-height: 27px
 		margin-top: 20px
+
+
+.io-featured_projects__content
+	display: flex
+	justify-content: space-between
+	flex-flow: wrap
+
+.io-ft_box
+	width: 25%
+
+
+/* RELATED POSTS */
+section#related_posts.io-related_posts
+	background-color: #f7f7f7
+	margin-top: 60px
+	padding: 15px 0 50px
+	h2
+		font-size: 24px
+		text-align: center
+		font-weight: 700
+		text-transform: uppercase
+		margin-bottom: 35px
+	.container-fluid
+		max-width: 1000px
+	.io-related_post
+		margin-bottom: 20px
+	.io-related_posts__content
+		padding: 0 15px
+	.io-related_posts__wrap
+		width: 50%
+	.io-rt_post
+		flex: 1
+		&__name
+			color: $black
+			text-transform: uppercase
+			font-size: 16px
+			font-weight: 700
+			display: inline
+			width: 100%
+			+transition
+			border-bottom: 2px solid transparent
+		&__meta
+			color: $muted
+			margin-top: 5px
+		&__thumb
+			width: 200px
+			height: 140px
+			background:
+				size: cover
+				position: center center
+				repeat: no-repeat
+				color: $silver
+		&:hover .io-rt_post__name
+			border-color: $black
+
+		
+
+
+
+/* FOOTER STYLES */
 
 footer#footer.io-main_footer
 	padding: 80px 0 60px
@@ -368,7 +451,7 @@ footer#footer.io-main_footer
 		position: center center
 		repeat: no-repeat
 
-	.io-about_article__content
+	&__content
 		width: 70%
 		position: relative
 		padding: 0 30px 40px
@@ -472,10 +555,45 @@ footer#footer.io-main_footer
 		font-size: 16px
 		font-weight: 600
 	
+.io-page_404
+	margin-top: 40px
+	&__text
+		text-align: center
+		width: 100%
+
+.number404
+	font-size: 62px
+	font-weight: 700
+	margin-bottom: 10px
+	line-height: 1
+	font-family: 'Capriola', 'Open Sans', sans-serif
+
+.pageNotFound
+	font:
+		family: 'Capriola', 'Open Sans', sans-serif
+		size: 16px
+		weight: bold
+	text-transform: uppercase
+	margin-bottom: 15px
+
+.large404
+	font:
+		size: 24px
+		weight: 700
+
+.small404
+	font:
+		size: 18px
+		weight: 600
+	margin-top: 10px
+	color: $muted
+
+
+
 .io-page_404__content
 	overflow: hidden
 	border-radius: 3px
-	padding: 50px 40px 70px
+	padding: 40px 40px 70px
 	box-shadow: 0px 20px 110px -40px rgba(0, 0, 0, 0.78), 0px 7px 20px rgba(0, 0, 0, 0.3)
 	position: relative
 	width: 80%
@@ -507,3 +625,91 @@ footer#footer.io-main_footer
 			&:focus
 				outline: none
 				border-bottom: 2px solid $muted
+
+
+/* COMMENTS STYLES */
+.io-comment_section
+	padding: 10px 0 20px
+
+	&__title
+		font-size: 24px
+		margin-bottom: 60px
+		font-weight: 700
+		text-transform: uppercase
+		text-align: center
+
+.io-comment_list
+
+.io-comment
+	display: flex
+	flex-flow: wrap
+	align-items: center
+	margin-bottom: 40px
+	&_info
+		width: 20%
+	&_author
+		&__thumb
+			box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.68), 0px 5px 10px rgba(0, 0, 0, 0.3)
+			margin: 0 auto
+			background:
+				size: cover
+				position: center center
+				repeat: no-repeat
+			width: 120px
+			height: 120px
+			border-radius: 50%
+		&__name a
+			color: $black
+			font: 
+				size: 18px
+				weight: 700
+	&_meta
+		display: flex
+		margin-bottom: 15px
+		justify-content: space-between
+		&__date a
+			color: $muted
+
+			font:
+				weight: 600
+				size: 12px
+		&__reply a
+			font-size: 12px
+			color: lighten($black, 40%)
+			margin-right: 20px
+			font-weight: 700
+			text-transform: uppercase
+			&:hover
+				color: $black
+	&_content
+		width: 80%
+		font:
+			size: 16px
+
+
+.io-comment_form
+	padding: 20px 40px 30px
+	margin-top: 90px
+	background: lighten($silver, 12%)
+	box-shadow: 0px 20px 90px -50px rgba(0, 0, 0, 0.78), 0px 7px 20px rgba(0, 0, 0, 0.3)
+	border-radius: 5px
+	h3 
+		text-transform: uppercase
+		font-weight: 400
+		margin-bottom: 30px
+	.io-contact_form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

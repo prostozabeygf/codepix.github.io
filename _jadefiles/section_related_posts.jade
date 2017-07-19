@@ -1,0 +1,17 @@
+mixin related_post
+	.io-related_post
+		.io-rt_post
+			a(href="#").io-rt_post__name Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+			.io-rt_post__meta
+				.post-date June 16, 2017
+
+
+
+section#related_posts.io-related_posts
+	.container-fluid
+		h2 Related Posts
+		.io-related_posts__content
+			.io-related_posts__wrap
+				+related_post
+				+related_post
+				+related_post

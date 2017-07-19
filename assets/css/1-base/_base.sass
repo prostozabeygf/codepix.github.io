@@ -1,5 +1,7 @@
 // importing styles
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Open+Sans:400,600,700&subset=cyrillic')
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Capriola|Open+Sans:400,600,700&subset=cyrillic')
+
+
 
 *
 	margin: 0
@@ -13,8 +15,20 @@ body
 		size: 14px
 		family: 'Open Sans', sans-serif
 	color: rgba(0,0,0,0.7)
-	background-color: $white
+	background-color: $bg_color
 	line-height: 1.5
+	overflow: hidden
+
+#wrapper.io-page_wrapper::-webkit-scrollbar
+	width: 9px
+#wrapper.io-page_wrapper::-webkit-scrollbar-thumb
+	border-radius: 10px
+	background-color: #fff
+	+transition
+	&:hover
+		background: darken(#eee, 20%)
+#wrapper.io-page_wrapper::-webkit-scrollbar-track
+	background-color: darken($silver, 5%)
 
 body.logged-in
 	margin-top: 32px
@@ -39,23 +53,78 @@ img
 	height: auto
 	vertical-align: middle
 
+blockquote
+	margin: 20px 0 25px
+	color: darken($muted, 10%)
+
 .space
 	height: 500px
 
-.box_shadow, .comment-list li
+.box_shadow
 	box-shadow: 1px 0 5px 1px rgba(0, 0, 0, 0.15), 0 0 3px 1px rgba(0, 0, 0, 0.15)
+
+
+/* PAGE PRELOADER STYLES START */
+.ps_preloader 
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background-color: $white
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 100%
+	z-index: 99999 
+
+.spinner 
+	width: 200px
+	text-align: center 
+
+.spinner > div 
+	width: 25px
+	height: 25px
+	background-color: $accent
+	border-radius: 100%
+	display: inline-block
+	animation: sk-bouncedelay 1s infinite ease-in-out both 
+
+.spinner .bounce1 
+	animation-delay: -0.32s 
+
+.spinner .bounce2 
+	animation-delay: -0.16s 
+
+@-webkit-keyframes sk-bouncedelay 
+	0%, 80%, 100% 
+		transform: scale(0) 
+	40% 
+		transform: scale(1)  
+
+@keyframes sk-bouncedelay 
+	0%, 80%, 100% 
+		transform: scale(0) 
+	40% 
+		transform: scale(1)  
+
+/* PAGE PRELOADER STYLES END */
+
 
 // general styles
 
 .container-fluid
 	max-width: 1200px
 
-article.io-single_article .container-fluid
+article.io-single_article .container-fluid, section.io-comment_section .container-fluid
 	max-width: 1000px
 
 #wrapper.io-page_wrapper
 	position: relative
 	top: 50px
+	overflow-y: scroll
+	height: 100%
+
 .io-front_page #wrapper.io-page_wrapper
 	position: static
 
@@ -95,8 +164,8 @@ h3.io-panel_sub__title
 a.io-btn, input.io-btn, #submit, input[type="submit"]
 	border: none
 	display: inline-block
-	background-color: $blue
-	padding: 0.6em 2.3em
+	background-color: lighten($accent, 7%)
+	padding: 0.8em 2.3em
 	border-radius: 2px
 	color: $white
 	font-weight: 600
@@ -104,7 +173,65 @@ a.io-btn, input.io-btn, #submit, input[type="submit"]
 	text-align: center
 	text-transform: capitalize
 	&:hover
-		background-color: darken($blue, 5%)
+		background-color: $accent
+
+
+/* SEARCH BOX */
+
+.search_container
+	z-index: 25
+	width: 100%
+	height: 100%
+	padding-top: 50px
+	position: fixed
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	display: none
+	background: rgba(255,255,255,0.9)
+
+.search-flex_centered
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100%
+	
+
+.search-box
+	position: relative
+	width: 320px
+	border-radius: 4px
+	display: none
+	overflow: hidden
+	&_input input
+		width: calc(100% - 50px)
+		border: none
+		font-weight: 600
+		height: 50px
+		background: transparentize($silver, 0.8)
+		padding: 0 15px
+		+transition
+		&:focus
+			background: $silver
+			outline: none
+	&_submit button
+		position: absolute
+		right: 0
+		top: 0
+		background: lighten($accent, 10%)
+		color: $white
+		height: 100%
+		width: 50px
+		border: none
+		font-size: 18px
+		+transition
+		i
+			line-height: 0
+		&:focus
+			outline: none
+		&:hover
+			background: $accent
 
 
 /* POST CATEGORIES */
@@ -162,7 +289,7 @@ a.io-btn, input.io-btn, #submit, input[type="submit"]
 	flex-flow: column
 	align-items: center
 	justify-content: center
-	background-color: #fafafa
+	background-color: $article_meta_bg
 	.io-article_day
 		width: 110px
 		border-radius: 50%
@@ -210,7 +337,7 @@ ul.io-social_list
 
 .io-contact_form
 	.io-form__group
-		.form_input
+		.form_input, #email
 			width: 100%
 			max-width: 100%
 			margin-bottom: 30px
@@ -225,138 +352,6 @@ ul.io-social_list
 				outline: none
 		textarea.form_input
 			min-height: 150px
-
-/* COMMENTS FORM STYLES */
-#comments.comments-area
-
-#respond
-	max-width: 800px
-	padding: 50px 0 30px
-	margin: 0 auto
-	border-bottom: 1px solid $silver
-#reply-title
-	margin-bottom: 10px
-	text-transform: uppercase
-	font-weight: 700
-#cancel-comment-reply-link
-#commentform
-.io-input_fields
-	display: flex
-	justify-content: space-between
-	p
-		width: 50%
-		margin-right: 15px
-		&:last-child
-			margin-right: 0
-#author, #email, #url
-	height: 42px
-	display: block
-	width: 100%
-	padding-left: 15px
-	border: 2px solid $silver
-	border-radius: 2px
-	+transition
-	&:focus
-		border: 2px solid $muted
-		outline: none
-#comment
-	border-radius: 2px
-	border: 2px solid $silver
-	width: 100%
-	max-width: 100%
-	min-width: 100%
-	padding: 15px 20px 0 
-	margin-bottom: 10px
-	+transition
-	&:focus
-		border: 2px solid $muted
-		outline: none
-#submit
-	margin-top: 25px
-	padding: 0.8em 2.3em
-.comment-notes
-	margin-bottom: 30px
-
-
-/*Comment Output*/
- 
-.commentlist .reply 
-.comment-list .reply a
- 
-h2.comments-title
-	max-width: 800px
-	margin: 25px auto 35px
-	font-size: 24px
-.commentlist .alt 
-.commentlist .odd 
-.commentlist .even 
-.commentlist .thread-alt 
-.commentlist .thread-odd 
-.commentlist .thread-even 
-.commentlist li ul.children .alt 
-.commentlist li ul.children .odd 
-.commentlist li ul.children .even 
-
-.comment-list .vcard 
-.comment-list .vcard cite.fn 
-.comment-list .vcard span.says 
-.comment-list .vcard img.photo
-	border-radius: 50%
-	margin-right: 10px
-	box-shadow: 0 0 0 2px $white, 0 0 0 4px $accent 
-.comment-list .vcard img.avatar 
-.comment-list .vcard cite.fn a.url 
-
-.comment-list .comment-meta
-	border-bottom: 1px solid $silver
-	padding-bottom: 10px
-	margin-bottom: 15px
-	display: flex
-	justify-content: space-between
-	align-items: center
-.comment-list .comment-meta a 
-.comment-list .comment-metadata 
-.comment-list .comment-metadata a
-	color: $muted
-	&:hover
-		color: $black 
- 
-.commentlist .parent 
-.commentlist .comment 
-.commentlist .children 
-.commentlist .pingback 
-.commentlist .bypostauthor 
-.commentlist .comment-author 
-.commentlist .comment-author-admin
-
-.comment-list
-	max-width: 800px
-	margin: 0 auto
-.comment-list li
-	display: block
-	width: 100%
-	background-color: $white
-	padding: 20px
-	border-radius: 2px
-	list-style-type: none
-
-.comment-list li p
-	font-family: 'Merriweather', serif
-	font-weight: 700
-	color: rgba(0,0,0,0.65)
-	padding-bottom: 15px
-	padding-top: 5px
-.comment-list li ul 
-.comment-list li ul.children li 
-.comment-list li ul.children li.alt 
-.comment-list li ul.children li.byuser 
-.comment-list li ul.children li.comment 
-.comment-list li ul.children li.bypostauthor 
-.comment-list li ul.children li.comment-author-admin 
-#cancel-comment-reply 
-#cancel-comment-reply a 
-
-
 
 section#frontpage.io-front_screens
 	height: 100vh

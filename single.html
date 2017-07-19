@@ -3,10 +3,11 @@ layout: default
 title: Personal blog
 ---
 
+{% include preloader.html %}
 {% include single_header.html %}
 <div id="wrapper" class="io-page_wrapper">
 	{% include single_content.html %}
+	{% include section_related_posts.html %}
 	{% include component_comments.html %}
-	{% include section_featured_projects.html %}
 	{% include footer.html %}
 </div>

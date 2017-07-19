@@ -1,33 +1,35 @@
-#comments.comments-area
-	h2.comments-title One Thought On “Навчально-Виховний Процес Призупинено До 19 Грудня”
-	ol.comment-list
-		li#comment-2.comment.even.thread-even.depth-1
-			article#div-comment-2.comment-body
-				footer.comment-meta
-					.comment-author.vcard
-						img(alt='' src='http://1.gravatar.com/avatar/d73aba1942b1702c1ae1aba909a14466?s=32&#038;d=mm&#038;r=g' srcset='' class='avatar avatar-32 photo' height='32' width='32' )
-						b.fn admin
-						span.says :
-					.comment-metadata
-						a(href="")
-							time(datetime="2017-04-16T19:39:48+00:00") 16.04.2017 в 19:39
-				.comment-content
-					p Just testing how comments work
-				.reply
-					a(hrel='nofollow' class='comment-reply-link' href='' aria-label='Комментарий к записи admin') Ответить
-	#respond.comment-respond
-		h3#reply-title.comment-reply-title Got Something To Say:
-			small: a(href="" style="display:none;")#cancel-comment-reply-link Отменить ответ
-		form#commentform.comment-form
-			p.comment-notes
-				span#email-notes Ваш e-mail не будет опубликован.
-				span#required Обязательные поля помечены
-			p
-				textarea#comment(placeholder="Your comment *"  name="comment" cols="45" rows="7" aria-required="true")
-			.io-input_fields
-				p.comment-form-autor
-					input#author(name="author" placeholder="Name *" type="text" value="" size="30")
-				p.comment-form-email
-					input#email(name="email" placeholder="Email *" type="text" value="" size="30")
-			p.form-submit
-				input#submit.submit(type="submit" value="Отправить комментарий")
+mixin comment
+	.io-comment
+		.io-comment_info
+			.io-comment_author__thumb(style="background-image: url(assets/img/gallery_images/image_1.jpg)")
+				
+			
+		.io-comment_content
+
+			.io-comment_author__name: a(href="#") BackFlip Progression
+			.io-comment_meta
+				.io-comment_meta__date 
+					a(href="#") June 31, 2017 at 7:45 pm
+				.io-comment_meta__reply
+					a(href="#") Reply
+			p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum exercitationem accusantium quos illum excepturi, beatae vitae, obcaecati.
+
+
+section.io-comment_section
+	.container-fluid
+		h2.io-comment_section__title Comments
+		.io-comment_list
+			+comment
+			+comment
+		.io-comment_form
+			h3 Leave a comment
+			form.io-contact_form
+				.io-row
+					.col.col--1-of-2.io-form__group
+						input(type="text" placeholder="Name:" name="name" id="first-name" class="form_input" required="required")
+					.col.col--1-of-2.io-form__group
+						input(type="text" placeholder="Email:" name="email" id="email" class="form_input" required="required")
+					.col.col--12-of-12.io-form__group
+						textarea(rows="6" placeholder="Comment:" name="message" id="text_message" class="form_input" required="required")
+					.col.col--12-of-12.io-form__group
+						input(type="submit" value="Send Message" name="message" id="send_message" class="form_submit io-btn") 
